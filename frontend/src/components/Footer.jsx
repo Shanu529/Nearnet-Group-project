@@ -1,28 +1,51 @@
 import React from "react";
 import { IoLogoReddit } from "react-icons/io5";
+
 function Footer() {
   return (
-    <footer className="w-full  bg-white">
-      <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
+    <footer className="w-full bg-white border-t">
+      <div className="max-w-7xl mx-auto px-6 py-10">
 
-        <div className="flex items-center gap-2">
-          <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-black text-white">
-            <IoLogoReddit  size={22} />
+        {/* Top section */}
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+
+          {/* Brand */}
+          <div className="flex items-center gap-3">
+            <div className="w-11 h-11 flex items-center justify-center rounded-xl bg-black text-white">
+              <IoLogoReddit size={24} />
             </div>
-            <span className="text-lg font-semibold text-gray-900">
-              Neighborhood Helper
-            </span>
+            <div>
+              <p className="text-lg font-semibold text-gray-900">
+                Neighborhood Helper
+              </p>
+              <p className="text-sm text-gray-500">
+                Share resources. Help locally.
+              </p>
+            </div>
+          </div>
+
+          {/* Links */}
+          <div className="flex flex-wrap gap-6 text-sm text-gray-600 font-medium">
+            <a href="/" className="hover:text-gray-900">Home</a>
+            <a href="#" className="hover:text-gray-900">Request</a>
+            <a href="#" className="hover:text-gray-900">Offer</a>
+            <a href="/listing" className="hover:text-gray-900">Listings</a>
+            <a href="#" className="hover:text-gray-900">About</a>
+          </div>
         </div>
 
-        <div className="flex  text-gray-600 font-medium">
-          <span className="hover:text-gray-900 cursor-pointer">Home</span>
-          <span className="hover:text-gray-900 cursor-pointer">Request</span>
-          <span className="hover:text-gray-900 cursor-pointer">Offer</span>
-          <span className="hover:text-gray-900 cursor-pointer">Listings</span>
-        </div>
+        {/* Divider */}
+        <div className="my-6 border-t" />
 
-        <div className="text-gray-500 text-sm">
-          © 2026 Neighborhood Helper. All rights reserved.
+        {/* Bottom section */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-sm text-gray-500">
+          <p>© 2026 Neighborhood Helper. All rights reserved.</p>
+
+          <div className="flex gap-4">
+            <a href="#" className="hover:text-gray-700">Privacy</a>
+            <a href="#" className="hover:text-gray-700">Terms</a>
+            <a href="#" className="hover:text-gray-700">Support</a>
+          </div>
         </div>
 
       </div>

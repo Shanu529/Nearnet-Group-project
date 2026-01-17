@@ -3,9 +3,9 @@ import React from "react";
 function GetStarted() {
   return (
     <section className="w-full bg-emerald-50 py-20">
-      <div className="max-w-4xl mx-auto px-6 text-center">
+      <div className="max-w-4xl mx-auto px-6 sm:text-center">
 
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4">
           Ready to Get Started?
         </h2>
 
