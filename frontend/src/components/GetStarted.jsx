@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router";
 function GetStarted() {
   return (
     <section className="w-full bg-emerald-50 py-20">
@@ -13,9 +13,9 @@ function GetStarted() {
           Browse available resources in your neighborhood or post what you need.
         </p>
 
-        <button className="px-8 py-4 rounded-xl bg-emerald-500 text-white font-semibold shadow-md hover:bg-emerald-600 transition">
+        <Link to="/listing" className="px-8 py-4 rounded-xl bg-emerald-500 text-white font-semibold shadow-md hover:bg-emerald-600 transition">
           View All Listings
-        </button>
+        </Link>
 
       </div>
     </section>

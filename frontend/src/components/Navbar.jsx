@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 
 import {
-  IoLogoReddit,
+
   IoLogInSharp,
   IoPersonCircle,
   IoMenu,
-  IoClose
+  IoClose,
 } from "react-icons/io5";
+
+import { BiLogoJquery } from "react-icons/bi";
+
+// import logo from '../assets/nearnet.jpeg'
 
 function Navbar() {
 
@@ -14,7 +18,6 @@ function Navbar() {
   const [menuOpen, setMenuOpen]  = useState(false)
   const showMenu = () =>{
     setMenuOpen(prev => !prev)
-
   }
 
   return (
@@ -23,11 +26,13 @@ function Navbar() {
 
         <div className="flex items-center gap-2">
           <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-black text-white">
-            <IoLogoReddit  size={22} />
+            <BiLogoJquery  size={22} /> 
+            
           </div>
-          <span className="text-lg font-semibold text-gray-900">
-            Nearnet
-          </span>
+          {/* <span className="text-lg font-semibold text-gray-900">
+            <img src={logo} alt="" className="w-32"/>
+          </span> */}
+          <h2 className="text-lg font-bold"> NearNet</h2>
         </div>
 
         

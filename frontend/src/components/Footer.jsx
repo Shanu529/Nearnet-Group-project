@@ -16,7 +16,7 @@ function Footer() {
             </div>
             <div>
               <p className="text-lg font-semibold text-gray-900">
-                Neighborhood Helper
+                NearNet Helper
               </p>
               <p className="text-sm text-gray-500">
                 Share resources. Help locally.
@@ -39,7 +39,7 @@ function Footer() {
 
         {/* Bottom section */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-sm text-gray-500">
-          <p>© 2026 Neighborhood Helper. All rights reserved.</p>
+          <p>© 2026 NearNet Helper. All rights reserved.</p>
 
           <div className="flex gap-4">
             <a href="#" className="hover:text-gray-700">Privacy</a>

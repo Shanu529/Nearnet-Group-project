@@ -4,14 +4,13 @@ function ListingCard({resource}) {
   return (
      <div className="border rounded-2xl p-6">
             <div className="flex justify-between items-center mb-4">
-              <span className="text-sm font-semibold px-3 py-1 rounded-full bg-emerald-50 text-emerald-600">
+              <span className="text-sm font-semibold px-3 py-1 rounded-full bg-emerald-50 text-emerald-00">
                 {resource.type}
               </span>
               <span className="text-sm text-gray-500">
                 {resource.time}
               </span>
             </div>
-
             <div>
                 <img src={resource.image} alt={resource.title} className="w-full h-48 object-cover rounded-xl mb-4"/>
             </div>
