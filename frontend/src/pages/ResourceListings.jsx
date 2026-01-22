@@ -96,7 +96,7 @@ const filterResources = resources.filter((item)=>{
          
           Browse and  Search resources requested and offered by your neighbors
         </p>
-<div className="flex flex-col md:flex-row justify-center gap-4 mb-12">
+       <div className="flex flex-col md:flex-row justify-center gap-4 mb-12">
   <div className="relative w-full md:w-1/3">
     <input
       type="text"
@@ -197,7 +197,7 @@ const filterResources = resources.filter((item)=>{
             ))
           ) : (
             <p className="text-center text-gray-500 col-span-full">
-              No events found. please wait
+              No Resource found. please wait
             </p>
           )}
         </div>    

@@ -39,9 +39,7 @@ function Home() {
          Offer a Resource
         </button>
      </div>
- 
-
-      </div>
+     </div>
     </section>
     <WhyChooseUs/>
     <GetStarted/>
