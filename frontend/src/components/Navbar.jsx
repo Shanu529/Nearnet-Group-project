@@ -1,88 +1,152 @@
 import React, { useState } from "react";
-
-import {
-
-  IoLogInSharp,
-  IoPersonCircle,
-  IoMenu,
-  IoClose,
-} from "react-icons/io5";
-
-import { BiLogoJquery } from "react-icons/bi";
-
-// import logo from '../assets/nearnet.jpeg'
+import { Link } from "react-router-dom";
+import logo from "../assets/nearnet.jpeg";
 
 function Navbar() {
-
-  const [checkUser, setCheckUser] = useState(true);
-  const [menuOpen, setMenuOpen]  = useState(false)
-  const showMenu = () =>{
-    setMenuOpen(prev => !prev)
-  }
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="w-full border-b bg-white">
-      <div className=" mx-auto px-6 py-4 flex items-center justify-between">
-
+    <>
+      {/* ================= HEADER ================= */}
+      <header className="bg-white border-b h-16 flex items-center px-4 md:px-6">
+        {/* Logo */}
         <div className="flex items-center gap-2">
-          <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-black text-white">
-            <BiLogoJquery  size={22} /> 
-            
-          </div>
-          {/* <span className="text-lg font-semibold text-gray-900">
-            <img src={logo} alt="" className="w-32"/>
-          </span> */}
-          <h2 className="text-lg font-bold"> NearNet</h2>
+          <Link to="/">
+            <img src={logo} alt="Nearnet Logo" className="h-12" />
+          </Link>
+          <h2 className="font-semibold">NearNet</h2>
         </div>
 
-        
-        {checkUser ? <>
-           <div className="hidden sm:flex items-center gap-5  text-gray-600 font-medium">
-          <a href="/" className=" font-semibold">
-            Home
-          </a>
-          <a href="#" className="hover:text-gray-900">
-            Request Resource
-          </a>
-          <a href="#" className="hover:text-gray-900">
-            Offer Resource
-          </a>
-          <a href="/listing" className="hover:text-gray-900">
-            Listings
-          </a>
-          <a href="/" className="hover:text-green-700 ">
-            <IoPersonCircle size={30}/> 
-          </a>
-          
+        {/* Search (desktop only) */}
+        <div className="flex-1 mx-10 hidden md:block">
+          <input
+            type="text"
+            placeholder="Search items, help, events nearby..."
+            className="w-full px-4 py-2 border rounded-full focus:outline-none focus:ring-2 focus:ring-[#CDFFE1]"
+          />
         </div>
-           <button className="sm:hidden" onClick={showMenu}>
-              {menuOpen ? <IoClose size={28} /> : <IoMenu size={28} />}
+
+        {/* Right actions (desktop) */}
+        <div className="hidden md:flex items-center gap-4 ml-auto">
+          {/* Notification */}
+          <button className="relative text-xl text-gray-600 hover:text-green-600">
+            <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full px-1">
+              3
+            </span>
+            <i className="fa-solid fa-bell"></i>
+          </button>
+
+          <Link to="/offer">
+            <button className="flex items-center gap-2 px-4 py-2 text-[#10b981] rounded-lg hover:bg-blue-100">
+              <i className="fa-solid fa-plus"></i>
+              Offer Resource
             </button>
-        </>
-        
-        :   
-        <div className="md:bg-black md:text-white py-1 px-5 rounded-full flex items-center gap-2">
-          <IoLogInSharp size={30}/> 
-        </div>}
-      
-      </div>
+          </Link>
 
-          {/*  mobile */}
-       {menuOpen && (
-        <div className="sm:hidden  top-full left-0 w-full relative  border-t transition-all shadow-lg">
-          <div className="flex flex-col px-6 py-4 gap-4 text-gray-700 font-medium">
-            <a href="/" onClick={showMenu}>Home</a>
-            <a href="#" onClick={showMenu}>Request Resource</a>
-            <a href="#" onClick={showMenu}>Offer Resource</a>
-            <a href="/listing" onClick={showMenu}>Listings</a>
-            <div className="flex items-center gap-2">
-              <IoPersonCircle size={26} />
-              
-            </div>
-          </div>
+          <Link to="/request">
+            <button className="flex items-center gap-2 px-4 py-2 text-[#10b981] rounded-lg hover:bg-blue-100">
+              <i className="fa-solid fa-hand-holding-heart"></i>
+              Request Resource
+            </button>
+          </Link>
+
+          <Link to="/signin">
+            <button className="flex items-center gap-2 px-4 py-2 border rounded-lg hover:bg-slate-50">
+              <i className="fa-solid fa-user"></i>
+              Sign
+            </button>
+          </Link>
         </div>
+
+        {/* Hamburger (mobile only) */}
+        <button
+          className="md:hidden ml-auto text-2xl text-gray-700"
+          onClick={() => setMenuOpen(prev => !prev)}
+        >
+          <i className={`fa-solid ${menuOpen ? "fa-xmark" : "fa-bars"}`}></i>
+        </button>
+      </header>
+
+      {/* ================= MOBILE OVERLAY ================= */}
+      {menuOpen && (
+        <div
+          className="fixed inset-0 z-40 bg-black/40 md:hidden"
+          onClick={() => setMenuOpen(false)}
+        />
       )}
-    </nav>
+
+      {/* ================= MOBILE SIDEBAR ================= */}
+      <aside
+        className={`
+          fixed top-0 left-0 z-50
+          h-full w-64
+          bg-white border-r
+          p-4 space-y-4
+          transform transition-transform duration-300
+          md:hidden
+          ${menuOpen ? "translate-x-0" : "-translate-x-full"}
+        `}
+      >
+        {/* Close button */}
+        <div className="flex justify-end">
+          <button
+            className="text-xl"
+            onClick={() => setMenuOpen(false)}
+          >
+            ✕
+          </button>
+        </div>
+
+        {/* Sidebar nav */}
+        <nav className="space-y-2">
+          <Link to="/" onClick={() => setMenuOpen(false)}>
+            <button className="w-full text-left px-3 py-2 rounded hover:bg-slate-100 font-medium flex items-center gap-2">
+              <i className="fa-solid fa-house"></i>
+              Home
+            </button>
+          </Link>
+
+          <Link to="/listing" onClick={() => setMenuOpen(false)}>
+            <button className="w-full text-left px-3 py-2 rounded hover:bg-slate-100 font-medium flex items-center gap-2">
+              <i className="fa-solid fa-lightbulb"></i>
+              Suggestion for you
+            </button>
+          </Link>
+
+          <button className="w-full text-left px-3 py-2 rounded hover:bg-slate-100 flex items-center gap-2">
+            <i className="fa-solid fa-handshake"></i>
+            Lend Items
+          </button>
+
+          <button className="w-full text-left px-3 py-2 rounded hover:bg-slate-100 flex items-center gap-2">
+            <i className="fa-solid fa-person-circle-question"></i>
+            Request Help
+          </button>
+
+          <button className="w-full text-left px-3 py-2 rounded hover:bg-slate-100 flex items-center gap-2">
+            <i className="fa-solid fa-triangle-exclamation"></i>
+            Emergency
+          </button>
+
+          <button className="w-full text-left px-3 py-2 rounded hover:bg-slate-100 flex items-center gap-2">
+            <i className="fa-solid fa-calendar-days"></i>
+            Events
+          </button>
+        </nav>
+
+        <hr />
+
+        {/* Always visible auth links */}
+        <Link
+          to="/signin"
+          onClick={() => setMenuOpen(false)}
+          className="flex items-center gap-2 px-3 py-2 border rounded hover:bg-slate-50"
+        >
+          <i className="fa-solid fa-user"></i>
+          Login
+        </Link>
+      </aside>
+    </>
   );
 }
 

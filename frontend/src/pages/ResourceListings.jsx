@@ -1,211 +1,206 @@
 import React, { useState } from "react";
-import ListingCard from "../components/ListingCard.jsx";
+
 function ResourceListings() {
-  
-    // const [resource,setResource] = useState([1,2,3,4]);
-    const [search, setSearch] = useState("");
-    const [ description, setDescription] = useState("");
-    const [filterType, setFilterType] = useState("ALL");  
-   const resources = [
+  const [openSidebar, setOpenSidebar] = useState(false);
+
+  // Dummy data (UI only)
+  const listings = [
   {
     id: 1,
-    type: "OFFER",
-    time: "Yesterday",
-    title: "Ladder for Painting",
-    description:
-      "Need a tall ladder for painting the exterior of my house this weekend.",
-    priority: "Medium Priority",
-    image: "https://picsum.photos/400/250?random=1",
+    title: "Need a Power Drill",
+    description: "Required for wall mounting work. Need for 1 hour.",
+    type: "REQUEST",
+    user: "Rohit • Flat 203",
+    time: "10 mins ago",
+    image: "https://picsum.photos/200/200?random=11",
+    icon: "fa-screwdriver-wrench",
+    badgeColor: "bg-yellow-100 text-yellow-700",
+    iconColor: "text-yellow-600",
   },
   {
     id: 2,
-    type: "OFFER",
-    time: "2d ago",
-    title: "Electric Drill Set",
-    description: "Drill set available in good condition for short-term use.",
-    priority: "Available Now",
-    image: "https://picsum.photos/400/250?random=2",
+    title: "First-Aid Help Available",
+    description: "Certified nurse available in the block.",
+    type: "EMERGENCY",
+    user: "Anjali • Flat 112",
+    time: "Just now",
+    image: "https://picsum.photos/200/200?random=12",
+    icon: "fa-kit-medical",
+    badgeColor: "bg-red-100 text-red-700",
+    iconColor: "text-red-600",
+    emergency: true,
   },
   {
     id: 3,
-    type: "REQUEST",
-    time: "12h ago",
-    title: "Baby Stroller",
-    description:
-      "Looking for a stroller for my visiting niece. Need urgently for tomorrow.",
-    priority: "Urgent",
-    image: "https://picsum.photos/400/250?random=3",
+    title: "Lending Folding Chairs",
+    description: "6 chairs available for small events.",
+    type: "LEND",
+    user: "Mr. Sharma • House 7",
+    time: "1 hour ago",
+    image: "https://picsum.photos/200/200?random=13",
+    icon: "fa-chair",
+    badgeColor: "bg-green-100 text-green-700",
+    iconColor: "text-green-600",
   },
   {
     id: 4,
+    title: "Need Extension Cable",
+    description: "For outdoor lighting setup this evening.",
     type: "REQUEST",
-    time: "12h ago",
-    title: "Baby Stroller",
-    description:
-      "Looking for a stroller for my visiting niece. Need urgently for tomorrow.",
-    priority: "Urgent",
-    image: "https://picsum.photos/400/250?random=4",
+    user: "Amit • Flat 405",
+    time: "25 mins ago",
+    image: "https://picsum.photos/200/200?random=14",
+    icon: "fa-plug",
+    badgeColor: "bg-yellow-100 text-yellow-700",
+    iconColor: "text-yellow-600",
   },
   {
     id: 5,
-    type: "REQUEST",
-    time: "12h ago",
-    title: "Baby Stroller",
-    description:
-      "Looking for a stroller for my visiting niece. Need urgently for tomorrow.",
-    priority: "Urgent",
-    image: "https://picsum.photos/400/250?random=5",
+    title: "Offering Car Jump Start",
+    description: "Available with jumper cables if anyone needs help.",
+    type: "LEND",
+    user: "Neha • Parking B2",
+    time: "40 mins ago",
+    image: "https://picsum.photos/200/200?random=15",
+    icon: "fa-car-battery",
+    badgeColor: "bg-green-100 text-green-700",
+    iconColor: "text-green-600",
   },
   {
     id: 6,
-    type: "REQUEST",
-    time: "12h ago",
-    title: "Baby Stroller",
-    description:
-      "Looking for a stroller for my visiting niece. Need urgently for tomorrow.",
-    priority: "Urgent",
-    image: "https://picsum.photos/400/250?random=6",
+    title: "Emergency Plumber Needed",
+    description: "Water leakage in kitchen sink.",
+    type: "EMERGENCY",
+    user: "Suresh • Flat 109",
+    time: "5 mins ago",
+    image: "https://picsum.photos/200/200?random=16",
+    icon: "fa-faucet-drip",
+    badgeColor: "bg-red-100 text-red-700",
+    iconColor: "text-red-600",
+    emergency: true,
   },
+  {
+    id: 7,
+    title: "Borrow Study Table",
+    description: "Need a small table for 2 days.",
+    type: "REQUEST",
+    user: "Pooja • Flat 312",
+    time: "2 hours ago",
+    image: "https://picsum.photos/200/200?random=17",
+    icon: "fa-table",
+    badgeColor: "bg-yellow-100 text-yellow-700",
+    iconColor: "text-yellow-600",
+  },
+  {
+    id: 8,
+    title: "Offering Yoga Mat",
+    description: "Extra yoga mat available for daily use.",
+    type: "LEND",
+    user: "Karan • Flat 215",
+    time: "3 hours ago",
+    image: "https://picsum.photos/200/200?random=18",
+    icon: "fa-person-praying",
+    badgeColor: "bg-green-100 text-green-700",
+    iconColor: "text-green-600",
+  },
+  
+ 
 ];
 
-// const count = resources.length
-const [count, setCount] = useState(resources)
-
-const filterResources = resources.filter((item)=>{
-  const matchSearch = item.title.toLocaleLowerCase().includes(search.toLocaleLowerCase());
-  const matchDescription = item.description.toLocaleLowerCase().includes(description.toLocaleLowerCase());
-
-  const matchType = filterType === "ALL" || item.type === filterType;
-
-  return matchType && matchSearch && matchDescription
-})
-
   return (
-    <section className="w-full  bg-white">
-      <div className="max-w-7xl mx-auto px-6">
+    <div className="bg-white min-h-screen">
+      <div className="flex">
 
-        {/* Header */}
-      <section
-        id="events"
-        className="px-6 md:px-16 py-16 grow"
-      >
-        <h2 className="text-center   text-emerald-600 text-3xl md:text-5xl font-bold mb-3">
-           Resource Listings
-        </h2>
-        <p className="text-center  mb-10">
-         
-          Browse and  Search resources requested and offered by your neighbors
-        </p>
-       <div className="flex flex-col md:flex-row justify-center gap-4 mb-12">
-  <div className="relative w-full md:w-1/3">
-    <input
-      type="text"
-      placeholder="Search resources by title..."
-      value={search}
-      onChange={(e) => setSearch(e.target.value)}
-      className="
-        w-full
-        border border-black
-        rounded-xl
-        px-4 py-3 pl-10
-        text-black
-        placeholder-gray-500
-        focus:outline-none
-        focus:ring-2
-        focus:ring-green-200
-        transition
-      "
-    />
-    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">
-      
-    </span>
-  </div>
+        {/* ================= SIDEBAR ================= */}
+        <aside className="hidden md:block w-64 bg-white border-r p-4 space-y-4">
+          <nav className="space-y-2">
+            <button className="w-full flex items-center gap-2 px-3 py-2 rounded bg-blue-50 text-emerald-700 font-medium">
+              <i className="fa-solid fa-house"></i>
+              Home
+            </button>
 
-  <div className="relative w-full md:w-1/3">
-    <input
-      type="text"
-      placeholder="Search resources by description..."
-      value={description}
-      onChange={(e) => setDescription(e.target.value)}
-      className="
-        w-full
-        border border-black
-        rounded-xl
-        px-4 py-3 pl-10
-        text-black
-        placeholder-gray-500
-        focus:outline-none
-        focus:ring-2
-        focus:ring-green-200
-        transition
-      "
-    />
-    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">
-      
-    </span>
-  </div>
-</div>
+            <button className="w-full flex items-center gap-2 px-3 py-2 rounded hover:bg-slate-100">
+              <i className="fa-solid fa-handshake"></i>
+              Lend Items
+            </button>
 
+            <button className="w-full flex items-center gap-2 px-3 py-2 rounded hover:bg-slate-100">
+              <i className="fa-solid fa-person-circle-question"></i>
+              Request Help
+            </button>
 
-        
-        {/* Filter Tabs */}
-        <div className="flex justify-center mb-12">
-          <div className="bg-gray-100 rounded-xl p-2 flex gap-2">
-            <button
-              onClick={() => setFilterType("ALL")}
-              className={`px-4 py-2 rounded-lg ${
-                filterType === "ALL"
-                  ? "bg-gray-300 shadow"
-                  : "text-gray-600"
+            <button className="w-full flex items-center gap-2 px-3 py-2 rounded hover:bg-slate-100">
+              <i className="fa-solid fa-triangle-exclamation"></i>
+              Emergency
+            </button>
+
+            <button className="w-full flex items-center gap-2 px-3 py-2 rounded hover:bg-slate-100">
+              <i className="fa-solid fa-calendar-days"></i>
+              Events
+            </button>
+          </nav>
+        </aside>
+
+        {/* ================= MAIN CONTENT ================= */}
+        <main className="flex-1 p-4 md:p-6 space-y-4">
+          {listings.map((item) => (
+            <div
+              key={item.id}
+              className={`bg-white rounded-xl shadow-sm hover:shadow transition p-4 flex gap-4 ${
+                item.emergency ? "border-l-4 border-red-500" : ""
               }`}
             >
-              All  Resources
-            </button>
-            
-            <button
-              onClick={() => setFilterType("REQUEST")}
-              className={`px-4 py-2 rounded-lg ${
-                filterType === "REQUEST"
-                  ? "bg-gray-300 shadow"
-                  : "text-gray-600"
-              }`}
-            >
-              Requests
-            </button>
+              {/* Image */}
+              <div className="w-16 h-16 sm:w-20 sm:h-20 flex-shrink-0 rounded-lg overflow-hidden bg-slate-100">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
 
-            <button 
-            onClick={()=>setFilterType("OFFER")}
-            className={`px-5 py-2 rounded-lg 
-            
-              ${filterType == "OFFER" ? "bg-gray-300 shadow":"text-gray-600"}
-            `}>
-              Offers
-            </button>
-          </div>
-        </div>
+              {/* Content */}
+              <div className="flex-1 min-w-0">
+                {/* Title + Badge */}
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
+                  <h3 className="font-semibold text-base sm:text-lg flex items-center gap-2 flex-wrap">
+                    <i
+                      className={`fa-solid ${item.icon} ${item.iconColor} shrink-0`}
+                    ></i>
+                    <span className="break-words">
+                      {item.title}
+                    </span>
+                  </h3>
 
-        {/* Count */}
-        <div className="mb-6 text-gray-600">
-          Showing {count.length} resources
-        </div>
-        
-        {/* Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filterResources.length > 0 ? (
-            filterResources.map((item) => (
-              <ListingCard key={item.id} resource={item} />
-            ))
-          ) : (
-            <p className="text-center text-gray-500 col-span-full">
-              No Resource found. please wait
-            </p>
-          )}
-        </div>    
-      </section>
-        
-        
+                  <span
+                    className={`text-xs px-3 py-1 rounded-full w-fit ${item.badgeColor}`}
+                  >
+                    {item.type}
+                  </span>
+                </div>
+
+                {/* Description */}
+                <p className="text-slate-600 text-sm sm:text-base mt-2">
+                  {item.description}
+                </p>
+
+                {/* Footer */}
+                <div className="flex flex-wrap justify-between items-center mt-3 text-xs sm:text-sm text-slate-500 gap-2">
+                  <span className="flex items-center gap-1">
+                    <i className="fa-solid fa-user"></i>
+                    {item.user}
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <i className="fa-solid fa-clock"></i>
+                    {item.time}
+                  </span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </main>
       </div>
-    </section>
+    </div>
   );
 }
 

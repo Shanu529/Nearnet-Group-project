@@ -10,6 +10,9 @@ import Listing from './pages/ResourceListings.jsx'
 import Navbar from './components/Navbar.jsx'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Footer from './components/Footer.jsx'
+import Offer from './pages/Offer.jsx'
+import Request from "./pages/Request.jsx"
+import Signin from './pages/Signin.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -32,6 +35,9 @@ function App() {
      <Routes>
       <Route path="/" element={<Home/>}/>
       <Route path="/listing" element={<Listing/>}/>
+      <Route path="/offer" element={<Offer/>}/>
+      <Route path="/request" element={<Request/>}/>
+      <Route path="/signin" element={<Signin/>}/>
      </Routes>
      <Footer/>
     
