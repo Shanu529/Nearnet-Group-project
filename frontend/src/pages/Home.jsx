@@ -3,7 +3,11 @@ import React from "react";
 import WhyChooseUs from "../components/WhyChooseUs.jsx";
 import GetStarted from "../components/GetStarted.jsx";
 
+import { useNavigate } from 'react-router-dom'
+
 function Home() {
+  const navigate = useNavigate();
+
   return (
     <>
   
@@ -31,11 +35,11 @@ function Home() {
         </p>
 
       <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 mt-8 sm:mt-10">
-         <button className="w-full sm:w-auto px-4 sm:px-10 py-2.5 sm:py-4 text-sm sm:text-lg rounded-xl bg-emerald-600 text-white font-semibold shadow-md hover:bg-emerald-500 active:scale-95 transition duration-200">
+       
+        <button onClick={(()=> navigate("/request"))} className="w-full sm:w-auto px-4 sm:px-10 py-2.5 sm:py-4 text-sm sm:text-lg rounded-xl bg-emerald-600 text-white font-semibold shadow-md hover:bg-emerald-500 active:scale-95 transition duration-200">
           Request a Resource
          </button>
-
-        <button className="w-full sm:w-auto px-4 sm:px-10 py-2.5 sm:py-4 text-sm sm:text-lg rounded-xl border-2 border-emerald-400 bg-white/90 text-emerald-700 font-semibold hover:bg-emerald-50 active:scale-95 transition duration-200">
+        <button onClick={(()=>navigate("offer"))} className="w-full sm:w-auto px-4 sm:px-10 py-2.5 sm:py-4 text-sm sm:text-lg rounded-xl border-2 border-emerald-400 bg-white/90 text-emerald-700 font-semibold hover:bg-emerald-50 active:scale-95 transition duration-200">
          Offer a Resource
         </button>
      </div>
