@@ -99,52 +99,64 @@ function Navbar() {
 
         {/* Sidebar nav */}
         <nav className="space-y-2">
-          <Link to="/" onClick={() => setMenuOpen(false)}>
+          <Link to="/" >
             <button className="w-full text-left px-3 py-2 rounded hover:bg-slate-100 font-medium flex items-center gap-2">
               <i className="fa-solid fa-house"></i>
               Home
             </button>
           </Link>
 
-          <Link to="/listing" onClick={() => setMenuOpen(false)}>
+          <Link to="/listing" >
             <button className="w-full text-left px-3 py-2 rounded hover:bg-slate-100 font-medium flex items-center gap-2">
               <i className="fa-solid fa-lightbulb"></i>
               Suggestion for you
             </button>
           </Link>
 
-          <button className="w-full text-left px-3 py-2 rounded hover:bg-slate-100 flex items-center gap-2">
-            <i className="fa-solid fa-handshake"></i>
-            Lend Items
-          </button>
+          
+          <Link to="/lenditems" >
+            <button className="w-full text-left px-3 py-2 rounded hover:bg-slate-100 font-medium flex items-center gap-2">
+             
+             <i className="fa-solid fa-share-nodes"></i>
+                Lend Items
+            </button>
+          </Link>
 
           {/* <button className="w-full text-left px-3 py-2 rounded hover:bg-slate-100 flex items-center gap-2">
             <i className="fa-solid fa-person-circle-question"></i>
             Request Help
           </button> */}
 
-           <Link to="/request" onClick={() => setMenuOpen(false)}>
+          <Link to="/request" >
             <button className="w-full text-left px-3 py-2 rounded hover:bg-slate-100 font-medium flex items-center gap-2">
-              <i className="fa-solid fa-hand-holding"></i> 
+              <i className="fa-solid fa-hand-holding"></i>
                Request Help
             </button>
           </Link>
-           <Link to="/offer" onClick={() => setMenuOpen(false)}>
+           <Link to="/offer" >
             <button className="w-full text-left px-3 py-2 rounded hover:bg-slate-100 font-medium flex items-center gap-2">
               <i className="fa-solid fa-tag"></i>  
                Offer 
             </button>
           </Link>
 
-          <button className="w-full text-left px-3 py-2 rounded hover:bg-slate-100 flex items-center gap-2">
-            <i className="fa-solid fa-triangle-exclamation"></i>
-            Emergency
-          </button>
+          
+            <Link to="/mergency" >
+            <button className="w-full text-left px-3 py-2 rounded hover:bg-slate-100 font-medium flex items-center gap-2">
+              <i className="fa-solid fa-kit-medical"></i>
+                Emergency
+            </button>
+          </Link>
+          
 
-          <button className="w-full text-left px-3 py-2 rounded hover:bg-slate-100 flex items-center gap-2">
-            <i className="fa-solid fa-calendar-days"></i>
-            Events
-          </button>
+             <Link to="/event" >
+            <button className="w-full text-left px-3 py-2 rounded hover:bg-slate-100 font-medium flex items-center gap-2">
+              <i className="fa-solid fa-calendar-days"></i>
+                 Events
+            </button>
+          </Link>
+
+          
         </nav>
 
         <hr />
