@@ -36,7 +36,7 @@ function WhyChooseUs() {
 
         
           <div className="border rounded-2xl p-8 hover:shadow-md transition">
-            < MdSafetyDivider size={40} className="text-emerald-700"/>
+            < MdSafetyDivider size={30} className="text-emerald-700"/>
             <h3 className="text-xl font-semibold text-gray-900 mb-3">
               Safe & Trusted
             </h3>
@@ -48,7 +48,7 @@ function WhyChooseUs() {
          
           <div className="border rounded-2xl p-8 hover:shadow-md transition">
             <h3 className="text-xl font-semibold text-gray-900 mb-3">
-              <AiFillSafetyCertificate size={40} className="text-emerald-700" />
+              <AiFillSafetyCertificate size={30} className="text-emerald-700" />
               Quick & Easy
             </h3>
             <p className="text-gray-600">

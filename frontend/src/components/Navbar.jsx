@@ -7,7 +7,7 @@ function Navbar() {
 
   return (
     <>
-      {/* ================= HEADER ================= */}
+      {/* HEADER */}
       <header className="bg-white border-b h-16 flex items-center px-4 md:px-6">
         {/* Logo */}
         <div className="flex items-center gap-2">

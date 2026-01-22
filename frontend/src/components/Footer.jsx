@@ -1,5 +1,5 @@
-import React from "react";
-import { IoLogoReddit } from "react-icons/io5";
+import { Link } from "react-router-dom";
+import logo from "../assets/nearnet.jpeg";
 
 function Footer() {
   return (
@@ -11,8 +11,10 @@ function Footer() {
 
           {/* Brand */}
           <div className="flex items-center gap-3">
-            <div className="w-11 h-11 flex items-center justify-center rounded-xl bg-black text-white">
-              <IoLogoReddit size={24} />
+            <div className="w-11 h-11 flex items-center justify-center  rounded-xl text-white">
+              <Link to="/">
+            <img src={logo} alt="Nearnet Logo" className="full" />
+             </Link>
             </div>
             <div>
               <p className="text-lg font-semibold text-gray-900">
