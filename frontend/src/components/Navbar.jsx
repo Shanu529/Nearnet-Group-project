@@ -118,10 +118,23 @@ function Navbar() {
             Lend Items
           </button>
 
-          <button className="w-full text-left px-3 py-2 rounded hover:bg-slate-100 flex items-center gap-2">
+          {/* <button className="w-full text-left px-3 py-2 rounded hover:bg-slate-100 flex items-center gap-2">
             <i className="fa-solid fa-person-circle-question"></i>
             Request Help
-          </button>
+          </button> */}
+
+           <Link to="/request" onClick={() => setMenuOpen(false)}>
+            <button className="w-full text-left px-3 py-2 rounded hover:bg-slate-100 font-medium flex items-center gap-2">
+              <i className="fa-solid fa-hand-holding"></i> 
+               Request Help
+            </button>
+          </Link>
+           <Link to="/offer" onClick={() => setMenuOpen(false)}>
+            <button className="w-full text-left px-3 py-2 rounded hover:bg-slate-100 font-medium flex items-center gap-2">
+              <i className="fa-solid fa-tag"></i>  
+               Offer 
+            </button>
+          </Link>
 
           <button className="w-full text-left px-3 py-2 rounded hover:bg-slate-100 flex items-center gap-2">
             <i className="fa-solid fa-triangle-exclamation"></i>
