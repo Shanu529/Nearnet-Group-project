@@ -12,7 +12,7 @@ function WhyChooseUs() {
         {/* Heading */}
         <div className=" md:text-center mb-16">
           <h2 className=" text-[1.5rem] sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Why Use Neighborhood Helper?
+            Why Use NearNet Helper?
           </h2>
           <p className="text-gray-600 text-[1rem] sm:text-lg max-w-2xl mx-auto">
             Save money, reduce waste, and strengthen community bonds through
