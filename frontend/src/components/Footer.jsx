@@ -6,10 +6,10 @@ function Footer() {
     <footer className="w-full bg-white border-t">
       <div className="max-w-7xl mx-auto px-6 py-10">
 
-        {/* Top section */}
+      
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
 
-          {/* Brand */}
+         
           <div className="flex items-center gap-3">
             <div className="w-11 h-11 flex items-center justify-center  rounded-xl text-white">
               <Link to="/">

@@ -28,7 +28,7 @@ function Navbar() {
 
         {/* Right actions (desktop) */}
         <div className="hidden md:flex items-center gap-4 ml-auto">
-          {/* Notification */}
+         
           <button className="relative text-xl text-gray-600 hover:text-green-600">
             <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full px-1">
               3
@@ -58,7 +58,7 @@ function Navbar() {
           </Link>
         </div>
 
-        {/* Hamburger (mobile only) */}
+        {/* menu for mobile only */}
         <button
           className="md:hidden ml-auto text-2xl text-gray-700"
           onClick={() => setMenuOpen(prev => !prev)}
@@ -67,7 +67,7 @@ function Navbar() {
         </button>
       </header>
 
-      {/* ================= MOBILE OVERLAY ================= */}
+      
       {menuOpen && (
         <div
           className="fixed inset-0 z-40 bg-black/40 md:hidden"
@@ -75,7 +75,7 @@ function Navbar() {
         />
       )}
 
-      {/* ================= MOBILE SIDEBAR ================= */}
+     
       <aside
         className={`
           fixed top-0 left-0 z-50
