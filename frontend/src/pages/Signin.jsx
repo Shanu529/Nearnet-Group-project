@@ -1,12 +1,73 @@
-import React from "react";
-import bgimg from "../assets/download.jpg"
-function Signin() {
+import React, { useState } from "react";
+import bgimg from "../assets/download.jpg";
 
+import { useNavigate } from "react-router-dom";
+function Signin() {
+  const [form, setForm] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+  });
+
+  const navigate = useNavigate();
+
+  const [error, setError] = useState("");
+
+  const handleName = (e) => {
+    const { name, value } = e.target;
+    const onlyLetters = value.replace(/[^a-zA-Z]/g, "");
+    setForm({ ...form, [name]: onlyLetters });
+
+    // it should only allow letters less thne 15
+    if (onlyLetters.length <= 15) {
+      setForm({ ...form, [name]: onlyLetters });
+    }
+  };
+
+  // emial validation funtion
+  const emailVAlidation = (email) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+
+  // password validation functionn
+  const passswordValidation = (password) => {
+    return /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{1,15}$/.test(
+      password,
+    );
+  };
+
+  // form submit handlerr
+  const formHandlerSubmit = (e) => {
+    e.preventDefault();
+
+    console.log("click");
+
+    if (!emailVAlidation(form.email)) {
+      setError("Invalid email address");
+      return;
+    }
+
+    if (!passswordValidation(form.password)) {
+      setError(
+        "Password must contain at least one uppercase letter, one number, one special character and be less than 15 characters long.",
+      );
+      return;
+    }
+    if (!passswordValidation(form.password)) {
+      setError(
+        "Password must have 1 uppercase, 1 number, 1 special character (max 15)",
+      );
+      return;
+    }
+
+    setError("");
+    navigate("/");
+  };
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#10B981] via-[#047857] to-black flex items-center justify-center px-4">
       {/* Main Card */}
       <div className="w-full max-w-5xl bg-white rounded-2xl shadow-2xl overflow-hidden grid grid-cols-1 md:grid-cols-2">
-        
         {/* Left Image Section (desktop only) */}
         <div className="relative hidden md:flex">
           <img
@@ -36,27 +97,41 @@ function Signin() {
             Sign Up
           </h2>
 
-          <form className="space-y-4">
+          <form onSubmit={formHandlerSubmit} className="space-y-4">
             <input
+              name="firstName"
+              value={form.firstName}
+              onChange={handleName}
+              required
               type="text"
               placeholder="First name"
               className="w-full px-4 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-black"
             />
 
             <input
+              value={form.lastName}
+              required
+              onChange={handleName}
+              name="lastName"
               type="text"
               placeholder="Last name"
               className="w-full px-4 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-black"
             />
 
             <input
+              value={form.email}
+              onChange={(e) => setForm({ ...form, email: e.target.value })}
               type="email"
+              required
               placeholder="Email address"
               className="w-full px-4 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-black"
             />
 
             <input
+              value={form.password}
+              onChange={(e) => setForm({ ...form, password: e.target.value })}
               type="password"
+              required
               placeholder="Password"
               className="w-full px-4 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-black"
             />
@@ -72,6 +147,8 @@ function Signin() {
             >
               Join us →
             </button>
+
+            {error && <p style={{ color: "red" }}>{error}</p>}
           </form>
 
           {/* Divider */}
@@ -94,7 +171,7 @@ function Signin() {
 
             <button className="w-full flex items-center justify-center gap-2 bg-black text-white py-2 rounded-md text-sm hover:bg-gray-900 transition">
               <img
-              src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg"
+                src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg"
                 alt="Apple"
                 className="w-4 h-4 invert"
               />

@@ -4,6 +4,7 @@ import WhyChooseUs from "../components/WhyChooseUs.jsx";
 import GetStarted from "../components/GetStarted.jsx";
 
 import { useNavigate } from 'react-router-dom'
+import FAQ from "../components/FAQ.jsx";
 
 function Home() {
   const navigate = useNavigate();
@@ -47,6 +48,7 @@ function Home() {
     </section>
     <WhyChooseUs/>
     <GetStarted/>
+    <FAQ />
     </>
   );
 }
