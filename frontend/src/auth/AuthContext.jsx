@@ -1,22 +1,21 @@
-
 import { useContext, createContext, useEffect, useState } from "react";
 
-
-// create context
 const AuthContext = createContext(null);
 
-// coustom hook
 export const useAuth = () => useContext(AuthContext);
 
-// crreate provider
+// create provider
 export const AuthProvider = ({ children }) => {
-    const [user, setUser] = useState(null);
-    
-    // all data stored in local storage for auth persistence
-}
+  const [user, setUser] = useState(null); // auth stateee
 
-return (
+  // all data stored in local storage for auth persistencee
+  // useEffect(()=>{
+  //   const authUser = JSON.parse(localStorage.getItem("user"))
+  // })
+
+  return (
     <AuthContext.Provider value={{ user, setUser }}>
       {children}
     </AuthContext.Provider>
   );
+};

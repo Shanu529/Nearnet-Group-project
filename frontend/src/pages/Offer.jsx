@@ -4,15 +4,13 @@ function Offer() {
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4">
       <div className="w-full max-w-md bg-white rounded-2xl shadow-lg p-6">
-        
-        {/* Icon */}
+      
         <div className="flex justify-center mb-4">
           <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-orange-100">
             <i className="fa-solid fa-gift text-3xl text-orange-500"></i>
           </div>
         </div>
 
-        {/* Title */}
         <h2 className="text-3xl font-bold text-center mb-2">
           Offer a Resource
         </h2>
@@ -21,9 +19,8 @@ function Offer() {
           Share something with your neighbours
         </p>
 
-        {/* Form */}
         <form className="space-y-4">
-          {/* Resource Name */}
+       
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
               Resource Name
@@ -35,7 +32,6 @@ function Offer() {
             />
           </div>
 
-          {/* Condition */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
               Condition
