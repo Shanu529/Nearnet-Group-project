@@ -11,6 +11,7 @@ export const useAuth = () => useContext(AuthContext);
 // crreate provider
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
+    
     // all data stored in local storage for auth persistence
 }
 

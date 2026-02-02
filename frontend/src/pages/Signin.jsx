@@ -17,7 +17,7 @@ function Signin() {
   const handleName = (e) => {
     const { name, value } = e.target;
     const onlyLetters = value.replace(/[^a-zA-Z]/g, "");
-    setForm({ ...form, [name]: onlyLetters });
+    // setForm({ ...form, [name]: onlyLetters });
 
     // it should only allow letters less thne 15
     if (onlyLetters.length <= 15) {
@@ -52,16 +52,16 @@ function Signin() {
       setError(
         "Password must contain at least one uppercase letter, one number, one special character and be less than 15 characters long.",
       );
-      return;
-    }
-    if (!passswordValidation(form.password)) {
-      setError(
-        "Password must have 1 uppercase, 1 number, 1 special character (max 15)",
-      );
-      return;
-    }
 
-    setError("");
+      return;
+    }
+    localStorage.setItem(
+      "user",
+      JSON.stringify({ email: form.email, password: form.password }),
+    );
+    console.log("alert");
+
+    alert("Signup successful");
     navigate("/");
   };
   return (
@@ -145,7 +145,14 @@ function Signin() {
               type="submit"
               className="w-full bg-black text-white py-2 rounded-md text-sm font-medium hover:bg-gray-900 transition"
             >
-              Join us →
+              Join us → 
+            </button>
+            <button
+              type="button"
+              onClick={() => navigate("/login")}
+              className="w-full bg-black text-white py-2 rounded-md text-sm font-medium hover:bg-gray-900 transition"
+            >
+              Login
             </button>
 
             {error && <p style={{ color: "red" }}>{error}</p>}

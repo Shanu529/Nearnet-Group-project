@@ -13,6 +13,7 @@ import Footer from "./components/Footer.jsx";
 import Offer from "./pages/Offer.jsx";
 import Request from "./pages/Request.jsx";
 import Signin from "./pages/Signin.jsx";
+import Login from "./pages/Login.jsx";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -36,6 +37,7 @@ function App() {
         <Route path="/offer" element={<Offer />} />
         <Route path="/request" element={<Request />} />
         <Route path="/signin" element={<Signin />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
       <Footer />
     </>
