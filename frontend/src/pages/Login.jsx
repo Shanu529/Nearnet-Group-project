@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import bgimg from "../assets/download.jpg";
 import { useNavigate } from "react-router-dom";
-
+import { Toaster, toast } from "react-hot-toast";
 function Login() {
   const [form, setForm] = useState({
     email: "",
     password: "",
   });
 
-  const [error, setError] = useState("");
+  // const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -16,9 +16,10 @@ function Login() {
 
     const storedUser = JSON.parse(localStorage.getItem("user"));
     console.log("here is user data form localstorage", storedUser);
-    
+
     if (!storedUser) {
-      setError("No account found. Please sign up first.");
+      // setError("No account found. Please sign up first.");
+      toast.error("No account found. Please sign up first.");
       return;
     }
 
@@ -26,19 +27,22 @@ function Login() {
       form.email === storedUser.email &&
       form.password === storedUser.password
     ) {
-      setError("");
-      alert("Login successful");
-      navigate("/");
+      toast.success("Login successful!");
+      setTimeout(() => {
+        navigate("/");
+      }, 1200);
+
+      // setError("");
+      // alert("Login successful");
+      // navigate("/");
     } else {
-      setError("Invalid email or password");
+      toast.error("Invalid email or password");
     }
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#10B981] via-[#047857] to-black flex items-center justify-center px-4">
-      
       <div className="w-full max-w-5xl bg-white rounded-2xl shadow-2xl overflow-hidden grid grid-cols-1 md:grid-cols-2">
-        
         <div className="relative hidden md:flex">
           <img
             src={bgimg}
@@ -63,7 +67,6 @@ function Login() {
           <h2 className="text-2xl font-semibold text-gray-900 mb-8 text-center">
             Login
           </h2>
-         
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <input

@@ -14,7 +14,9 @@ import Offer from "./pages/Offer.jsx";
 import Request from "./pages/Request.jsx";
 import Signin from "./pages/Signin.jsx";
 import Login from "./pages/Login.jsx";
-
+import { Toaster } from "react-hot-toast";
+import { useEffect } from "react";
+import { toast } from "react-hot-toast";
 function App() {
   const [count, setCount] = useState(0);
 
@@ -27,10 +29,14 @@ function App() {
   //   }
 
   // ])
+   useEffect(() => {
+    toast.success("🔥 Toast is working globally!");
+  }, []);
 
   return (
     <>
       <Navbar />
+      <Toaster position="top-right" reverseOrder={false} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/listing" element={<Listing />} />
