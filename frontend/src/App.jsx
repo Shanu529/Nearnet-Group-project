@@ -29,9 +29,7 @@ function App() {
   //   }
 
   // ])
-   useEffect(() => {
-    toast.success("🔥 Toast is working globally!");
-  }, []);
+
 
   return (
     <>
