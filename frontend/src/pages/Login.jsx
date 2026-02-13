@@ -8,7 +8,7 @@ function Login() {
     password: "",
   });
 
-  // const [error, setError] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -18,7 +18,7 @@ function Login() {
     console.log("here is user data form localstorage", storedUser);
 
     if (!storedUser) {
-      // setError("No account found. Please sign up first.");
+     
       toast.error("No account found. Please sign up first.");
       return;
     }
@@ -93,7 +93,7 @@ function Login() {
               className="w-full px-4 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-black"
             />
 
-            {error && <p className="text-red-500 text-xs">{error}</p>}
+            {Error && <p className="text-red-500 text-xs">{error}</p>}
 
             <button
               type="submit"

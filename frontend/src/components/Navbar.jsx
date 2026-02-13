@@ -29,7 +29,7 @@ function Navbar() {
         {/* Right actions (desktop) */}
         <div className="hidden md:flex items-center gap-4 ml-auto">
          
-          <button className="relative text-xl text-gray-600 hover:text-green-600">
+          <button className="relative text-xl text-gray-600 hover:text-blue-600">
             <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full px-1">
               3
             </span>
@@ -37,14 +37,14 @@ function Navbar() {
           </button>
 
           <Link to="/offer">
-            <button className="flex items-center gap-2 px-4 py-2 text-[#10b981] rounded-lg hover:bg-blue-100">
+            <button className="flex items-center gap-2 px-4 py-2 text-[#000000] rounded-lg hover:bg-[#eaeaea]">
               <i className="fa-solid fa-plus"></i>
               Offer Resource
             </button>
           </Link>
 
           <Link to="/request">
-            <button className="flex items-center gap-2 px-4 py-2 text-[#10b981] rounded-lg hover:bg-blue-100">
+            <button className="flex items-center gap-2 px-4 py-2 text-[#000000] rounded-lg hover:bg-[#eaeaea]">
               <i className="fa-solid fa-hand-holding-heart"></i>
               Request Resource
             </button>
@@ -162,8 +162,7 @@ function Navbar() {
         <hr />
 
         {/* Always visible auth links */}
-        <Link
-          to="/signin"
+        <Link to="/signin"
           onClick={() => setMenuOpen(false)}
           className="flex items-center gap-2 px-3 py-2 border rounded hover:bg-slate-50"
         >
