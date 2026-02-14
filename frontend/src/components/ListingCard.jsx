@@ -3,6 +3,7 @@ import React from "react";
 function ListingCard({ resource }) {
   return (
     <>
+    <div data-aos="fade-down">
       <div className="border rounded-2xl p-6">
         <div className="flex justify-between items-center mb-4">
           <span className="text-sm font-semibold px-3 py-1 rounded-full bg-emerald-50 text-emerald-00">
@@ -30,7 +31,7 @@ function ListingCard({ resource }) {
           </span>
         </div>
       </div>
-    
+    </div>
     </>
   );
 }

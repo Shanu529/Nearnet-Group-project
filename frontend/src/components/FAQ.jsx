@@ -57,7 +57,7 @@ const FAQ = () => {
                 {faq.question}
               </h3>
               <i
-                className={`fas fa-chevron-down text-indigo-600 transition-transform duration-300 ${
+                className={`fas fa-chevron-down text-teal-600 transition-transform duration-300 ${
                   openIndex === index ? "rotate-180" : ""
                 }`}
               ></i>

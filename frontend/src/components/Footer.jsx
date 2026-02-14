@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "../assets/nearnet.jpeg";
+import logo from "../assets/logo.png";
 
 function Footer() {
   return (
@@ -11,18 +11,10 @@ function Footer() {
 
          
           <div className="flex items-center gap-3">
-            <div className="w-11 h-11 flex items-center justify-center  rounded-xl text-white">
+            <div className="flex items-center justify-center  rounded-xl text-white">
               <Link to="/">
-            <img src={logo} alt="Nearnet Logo" className="full" />
+            <img src={logo} alt="Nearnet Logo" className="h-40 w-40" />
              </Link>
-            </div>
-            <div>
-              <p className="text-lg font-semibold text-gray-900">
-                NearNet Helper
-              </p>
-              <p className="text-sm text-gray-500">
-                Share resources. Help locally.
-              </p>
             </div>
           </div>
 

@@ -6,7 +6,9 @@ import { AiFillSafetyCertificate } from "react-icons/ai";
 
 function WhyChooseUs() {
   return (
+
     <section className="w-full py-24 bg-white">
+      <div data-aos="fade-down">
       <div className="max-w-7xl mx-auto px-6">
         {/* Heading */}
         <div className=" md:text-center mb-16">
@@ -51,6 +53,7 @@ function WhyChooseUs() {
             </p>
           </div>
         </div>
+      </div>
       </div>
     </section>
   );

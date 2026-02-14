@@ -1,39 +1,32 @@
-import { useState } from "react";
-import "./App.css";
-
-// All hooks
-import { useRoutes } from "react-router-dom";
-
-// All pages
+import { useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar.jsx";
+import Footer from "./components/Footer.jsx";
 import Home from "./pages/Home.jsx";
 import Listing from "./pages/ResourceListings.jsx";
-import Navbar from "./components/Navbar.jsx";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Footer from "./components/Footer.jsx";
 import Offer from "./pages/Offer.jsx";
 import Request from "./pages/Request.jsx";
 import Signin from "./pages/Signin.jsx";
 import Login from "./pages/Login.jsx";
 import { Toaster } from "react-hot-toast";
-import { useEffect } from "react";
-import { toast } from "react-hot-toast";
+
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 function App() {
-  const [count, setCount] = useState(0);
-
-  // const router = useRoutes([
-  //   {
-  //     path:"/", element:<Home/>
-  //   },
-  //   {
-  //     path:"/listing", element:<Listing/>
-  //   }
-
-  // ])
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: true,
+      easing: "ease-in-out",
+    });
+  }, []);
 
   return (
     <>
       <Navbar />
       <Toaster position="top-right" reverseOrder={false} />
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/listing" element={<Listing />} />
@@ -42,6 +35,7 @@ function App() {
         <Route path="/signin" element={<Signin />} />
         <Route path="/login" element={<Login />} />
       </Routes>
+
       <Footer />
     </>
   );
