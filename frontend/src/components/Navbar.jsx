@@ -1,20 +1,50 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+
 import { Link } from "react-router-dom";
-import logo from "../assets/nearnet.jpeg";
+import logo from "../assets/logo.png";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [visible, setVisible] = useState(true);
+const [lastScrollY, setLastScrollY] = useState(0);
+
+useEffect(() => {
+  const handleScroll = () => {
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY > lastScrollY && currentScrollY > 80) {
+      setVisible(false); // scroll down
+    } else {
+      setVisible(true); // scroll up
+    }
+
+    setLastScrollY(currentScrollY);
+  };
+
+  window.addEventListener("scroll", handleScroll, { passive: true });
+  return () => window.removeEventListener("scroll", handleScroll);
+}, [lastScrollY]);
+
 
   return (
     <>
       {/* HEADER */}
-      <header className="bg-white border-b h-16 flex items-center px-4 md:px-6">
+      <header
+  className={`
+    fixed top-0 z-50 w-full
+    bg-[rgba(255,255,255,0.10)] backdrop-blur-sm
+    border-b shadow-sm
+    flex items-center px-6
+    transition-transform duration-300 ease-in-out
+    ${visible ? "translate-y-0" : "-translate-y-full"}
+  `}
+>
+
         {/* Logo */}
         <div className="flex items-center gap-2">
           <Link to="/">
-            <img src={logo} alt="Nearnet Logo" className="h-12" />
+            <img src={logo} alt="Nearnet Logo" className="h-20" />
           </Link>
-          <h2 className="font-semibold">NearNet</h2>
         </div>
 
         {/* Search (desktop only) */}
@@ -37,21 +67,21 @@ function Navbar() {
           </button>
 
           <Link to="/offer">
-            <button className="flex items-center gap-2 px-4 py-2 text-[#000000] rounded-lg hover:bg-[#eaeaea]">
+            <button className="flex items-center gap-2 px-4 py-2 text-[#000000] rounded-lg hover:bg-[rgba(255,255,255,0.90)]">
               <i className="fa-solid fa-plus"></i>
               Offer Resource
             </button>
           </Link>
 
           <Link to="/request">
-            <button className="flex items-center gap-2 px-4 py-2 text-[#000000] rounded-lg hover:bg-[#eaeaea]">
+            <button className="flex items-center gap-2 px-4 py-2 text-[#000000] rounded-lg hover:bg-[rgba(255,255,255,0.90)]">
               <i className="fa-solid fa-hand-holding-heart"></i>
               Request Resource
             </button>
           </Link>
 
           <Link to="/signin">
-            <button className="flex items-center gap-2 px-4 py-2 border rounded-lg hover:bg-slate-50">
+            <button className="flex items-center gap-2 px-4 py-2 border rounded-lg hover:bg-[rgba(255,255,255,0.90)]">
               <i className="fa-solid fa-user"></i>
               Sign
             </button>
@@ -80,7 +110,7 @@ function Navbar() {
         className={`
           fixed top-0 left-0 z-50
           h-full w-64
-          bg-white border-r
+          bg-[rgba(255,255,255,0.10)] backdrop-blur-xl border-r
           p-4 space-y-4
           transform transition-transform duration-300
           md:hidden

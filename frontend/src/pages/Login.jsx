@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import bgimg from "../assets/download.jpg";
+import bg from "../assets/bg.mp4";
 import { useNavigate } from "react-router-dom";
 import { Toaster, toast } from "react-hot-toast";
 function Login() {
@@ -41,26 +41,26 @@ function Login() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#10B981] via-[#047857] to-black flex items-center justify-center px-4">
+    <div className="min-h-screen bg-linear-to-br from-[#10B981] via-[#047857] to-black flex items-center justify-center px-4">
       <div className="w-full max-w-5xl bg-white rounded-2xl shadow-2xl overflow-hidden grid grid-cols-1 md:grid-cols-2">
         <div className="relative hidden md:flex">
-          <img
-            src={bgimg}
-            alt="Login background"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
+          <video autoPlay muted loop className="absolute inset-0 w-full h-full object-cover">
+              <source src={bg} type="video/mp4" />
+            </video>
           <div className="absolute inset-0 bg-black/40"></div>
 
           <div className="relative z-10 flex flex-col justify-center px-10 lg:px-14 text-white">
-            <h1 className="text-3xl lg:text-4xl font-semibold leading-tight mb-4">
+            <div data-aos="fade-right">
+             <h1 className="text-20 lg:text-[50px] font-bold leading-tight mb-4">
               Welcome Back
             </h1>
-            <p className="text-sm text-gray-200">
+            <p className="text-2xl text-gray-200">
               Login to continue
               <br />
               your journey 🚀
             </p>
           </div>
+        </div>
         </div>
 
         <div className="flex flex-col justify-center px-6 sm:px-10 py-10 sm:py-12">
@@ -104,9 +104,9 @@ function Login() {
           </form>
 
           <div className="flex items-center my-6">
-            <div className="flex-grow h-px bg-gray-300"></div>
+            <div className="grow h-px bg-gray-300"></div>
             <span className="px-3 text-xs text-gray-500">or</span>
-            <div className="flex-grow h-px bg-gray-300"></div>
+            <div className="grow h-px bg-gray-300"></div>
           </div>
 
           <div className="space-y-3">

@@ -17,9 +17,10 @@ function Home() {
   return (
     <>
       <section className="bg-[#faf7f2]">
-        <div className="max-w-7xl mx-auto px-6 py-10 md:py-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-16">
+        <div className=" h-screen max-w-7xl mx-auto px-6 py-10 md:py-20">
+          <div className="flex flex-cols-2 lg:flex-cols-2 items-center gap-16">
             <div>
+              <div data-aos="fade-down">
               <h1 className="text-3xl lg:text-5xl font-bold text-gray-900 leading-tight">
                 Building Stronger Communities Together
               </h1>
@@ -28,7 +29,7 @@ function Home() {
                 Share Resources Within <br />
                 Neighborhood
               </p>
-
+              </div>
               <div className="mt-8 flex gap-4">
                 <button className="bg-black text-white sm:px-6 sm:py-3 py-2 px-2 rounded-lg font-medium hover:bg-gray-800 transition">
                   Get started →
@@ -59,8 +60,10 @@ function Home() {
             </div>
 
             <div className="relative flex justify-center">
+              <div data-aos="fade-down">
               <img src={phone} alt="Real estate app" className="rounded-3xl" />
             </div>
+          </div>
           </div>
         </div>
       </section>
