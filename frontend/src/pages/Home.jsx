@@ -16,59 +16,75 @@ function Home() {
 
   return (
     <>
-      <section className="bg-[#faf7f2]">
-        <div className=" h-screen max-w-7xl mx-auto px-6 py-10 md:py-20">
-          <div className="flex flex-cols-2 lg:flex-cols-2 items-center gap-16">
-            <div>
-              <div data-aos="fade-down">
-              <h1 className="text-3xl lg:text-5xl font-bold text-gray-900 leading-tight">
-                Building Stronger Communities Together
-              </h1>
+     <section className="bg-[#faf7f2] mt-20 lg:mt-0">
+  <div className="min-h-screen max-w-7xl mx-auto px-6 py-10 md:py-20 flex items-center">
+    
+    <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 w-full">
+      
+ 
+      <div className="w-full lg:w-1/2 md:text-center lg:text-left">
+        
+        <div data-aos="fade-down">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+            Building Stronger Communities Together
+          </h1>
 
-              <p className="mt-5 text-gray-600 max-w-md">
-                Share Resources Within <br />
-                Neighborhood
-              </p>
-              </div>
-              <div className="mt-8 flex gap-4">
-                <button className="bg-black text-white sm:px-6 sm:py-3 py-2 px-2 rounded-lg font-medium hover:bg-gray-800 transition">
-                  Get started →
-                </button>
-
-                <button className="bg-white text-gray-900 sm:px-6 py-2 px-2 sm:py-3 rounded-lg border hover:bg-gray-100 transition">
-                  More about app
-                </button>
-              </div>
-
-              <div className="mt-12 flex items-center gap-8 text-gray-400">
-                <Link to="/login">
-                  <span className="
-                  hover:text-black
-                  font-semibold">Login</span>
-                </Link>
-
-                <Link to="/signin">
-                  <span className="
-                  hover:text-black
-                  font-semibold">Signin</span>
-                </Link>
-
-                <Link to="/listing">
-                  <span className="font-semibold">Listing</span>
-                </Link>
-              </div>
-            </div>
-
-            <div className="relative flex justify-center">
-              <div data-aos="fade-down">
-              <img src={phone} alt="Real estate app" className="rounded-3xl" />
-            </div>
-          </div>
-          </div>
+          <p className="mt-5 text-gray-600 max-w-md mx-auto lg:mx-0">
+            Share Resources Within <br className="hidden sm:block" />
+            Neighborhood
+          </p>
         </div>
-      </section>
 
-      <section></section>
+        
+        <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+          <button className="bg-black text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-800 transition">
+            Get started →
+          </button>
+
+          <button className="bg-white text-gray-900 px-6 py-3 rounded-lg border hover:bg-gray-100 transition">
+            More about app
+          </button>
+        </div>
+
+      
+        <div className="mt-10 flex justify-center lg:justify-start gap-8 text-gray-500">
+          <Link to="/login">
+            <span className="hover:text-black font-semibold transition">
+              Login
+            </span>
+          </Link>
+
+          <Link to="/signin">
+            <span className="hover:text-black font-semibold transition">
+              Signin
+            </span>
+          </Link>
+
+          <Link to="/listing">
+            <span className="hover:text-black font-semibold transition">
+              Listing
+            </span>
+          </Link>
+        </div>
+      </div>
+
+      
+      <div className="w-full lg:w-1/2 flex justify-center">
+        <div data-aos="fade-down" className="w-full max-w-sm sm:max-w-md lg:max-w-lg">
+          <img
+            src={phone}
+            alt="Real estate app"
+            className="w-full h-auto object-contain rounded-3xl"
+          />
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+   
 
       <WhyChooseUs />
       <GetStarted />
