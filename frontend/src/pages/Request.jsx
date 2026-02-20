@@ -2,7 +2,7 @@ import React from "react";
 
 function Request() {
   return (
-  <div className="min-h-screen relative bg-linear-to-br from-[#cbcbcb] via-[#ffffff] to-black flex items-center justify-center px-4 overflow-hidden">
+  <div className="min-h-screen relative  flex items-center justify-center px-4 overflow-hidden">
 
       {/* soft glow */}
       <div className="absolute w-105 h-105 bg-white/10 rounded-full blur-3xl"></div>

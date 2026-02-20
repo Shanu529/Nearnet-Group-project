@@ -31,7 +31,7 @@ useEffect(() => {
       {/* HEADER */}
       <header
   className={`
-    fixed top-0 z-50 w-full
+   w-full
     bg-[rgba(255,255,255,0.10)] backdrop-blur-sm
     border-b shadow-sm
     flex items-center px-6
