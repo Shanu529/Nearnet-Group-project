@@ -41,7 +41,7 @@ function Login() {
   };
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-[#10B981] via-[#047857] to-black flex items-center justify-center px-4">
+    <div className="min-h-screen bg-linear-to-br from-[#cbcbcb] via-[#ffffff] to-black flex items-center justify-center px-4">
       <div className="w-full max-w-5xl bg-white rounded-2xl shadow-2xl overflow-hidden grid grid-cols-1 md:grid-cols-2">
         <div className="relative hidden md:flex">
           <video autoPlay muted loop className="absolute inset-0 w-full h-full object-cover">
