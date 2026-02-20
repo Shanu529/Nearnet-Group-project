@@ -83,7 +83,7 @@ useEffect(() => {
           <Link to="/signin">
             <button className="flex items-center gap-2 px-4 py-2 border rounded-lg hover:bg-[rgba(255,255,255,0.90)]">
               <i className="fa-solid fa-user"></i>
-              Sign
+              Sign-in
             </button>
           </Link>
         </div>
