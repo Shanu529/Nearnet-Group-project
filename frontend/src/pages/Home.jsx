@@ -25,12 +25,12 @@ function Home() {
       <div className="w-full lg:w-1/2 md:text-center lg:text-left">
         
         <div data-aos="fade-down">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+          <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
             Building Stronger Communities Together
           </h1>
 
-          <p className="mt-5 text-gray-600 max-w-md mx-auto lg:mx-0">
-            Share Resources Within <br className="hidden sm:block" />
+          <p className="mt-5 text-gray-600 max-w-md mx-auto font-semibold text-xl lg:mx-0">
+            Share Resources With-in <br className="hidden sm:block" />
             Neighborhood
           </p>
         </div>
@@ -47,7 +47,7 @@ function Home() {
         </div>
 
       
-        <div className="mt-10 flex justify-center lg:justify-start gap-8 text-gray-500">
+        {/* <div className="mt-10 flex justify-center lg:justify-start gap-8 text-gray-500">
           <Link to="/login">
             <span className="hover:text-black font-semibold transition">
               Login
@@ -65,12 +65,12 @@ function Home() {
               Listing
             </span>
           </Link>
-        </div>
+        </div> */}
       </div>
 
       
       <div className="w-full lg:w-1/2 flex justify-center">
-        <div data-aos="fade-down" className="w-full max-w-sm sm:max-w-md lg:max-w-lg">
+        <div data-aos="fade-down" className="w-full  max-w-sm sm:max-w-md lg:max-w-xl">
           <img
             src={phone}
             alt="Real estate app"
