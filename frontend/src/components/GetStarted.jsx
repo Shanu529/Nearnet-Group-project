@@ -85,7 +85,7 @@ const GetStarted = (props) => {
           View All Listings
         </Link>
       </div>
-       <div className="mt-12 max-w-6xl mx-auto px-4 flex gap-8 flex-row overflow-x-scroll" >
+       <div id="scroll" className="mt-12 max-w-6xl mx-auto px-4 flex gap-8 flex-row overflow-x-auto no-scrollbar">
               {listings.map(function (elem, idx) {
               return <div key={idx}>
                 <GetStartedCard id={elem.id} title={elem.title} type={elem.type} user={elem.user} time={elem.time} img={elem.image} icon={elem.icon} />
