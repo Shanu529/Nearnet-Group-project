@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import logo from "../assets/logo.png";
 import {
   FaFacebookF,
   FaXTwitter,
@@ -11,17 +12,15 @@ import { Link } from "react-router-dom";
 function Footer() {
 
   return (
-    <footer className="bg-[#000000] text-white ">
+    <footer className="bg-[#faf7f2] text-black ">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16 flex ">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
           <div>
-            <h3 className="text-xl font-semibold mb-6 text-orange-500">
+            <h3 className="text-xl font-semibold mb-6 text-black">
               ABOUT US
             </h3>
-            <p className="text-gray-300 text-sm leading-relaxed">
-              Shanker Casting Industries is a leading manufacturer of investment
-              casting components. Our state-of-the-art manufacturing processes
-              produce castings ranging from a few grams to 70 kg.
+            <p className="text-gray-600 text-sm leading-relaxed">
+              This platform is a hyperlocal community network that enables people in the same neighborhood to share resources, exchange information, and support each other in real time. 
             </p>
           </div>
 
@@ -33,32 +32,29 @@ function Footer() {
           </div> */}
 
           <div>
-            <h3 className="text-xl font-semibold mb-6 text-orange-500">
+            <h3 className="text-xl font-semibold mb-6 text-black">
               Recent Posts
             </h3>
 
-            <ul className="space-y-3 text-gray-300 text-sm">
-              <li className="hover:text-orange-500 cursor-pointer transition">
-                › Investment Casting for Diverse Industries
+            <ul className="space-y-3 text-gray-600 text-sm">
+              <li className="hover:text-gray-900 cursor-pointer transition">
+          › SHARE YOUR RESOURCES WITH NEARBY COMMUNITY
               </li>
-              <li className="hover:text-orange-500 cursor-pointer transition">
-                › Quality Assurance in Investment Casting
+              <li className="hover:text-gray-900 cursor-pointer transition">
+                › How to Post a Listing on Nearnet
               </li>
-              <li className="hover:text-orange-500 cursor-pointer transition">
-                › Understanding the Investment Casting Process
+              <li className="hover:text-gray-900 cursor-pointer transition">
+                ›   5 Tips for Safe and Successful Resource Sharing
               </li>
             </ul>
           </div>
 
           <div>
-            <h3 className="text-xl font-semibold mb-6 text-orange-500">
+            <h3 className="text-xl font-semibold mb-6 text-black">
               Location
             </h3>
-            <p className="text-gray-300 text-sm leading-relaxed">
-              Pawa Road, Jaspal Bangar to <br />
-              Pawa Village Kanganwal Road <br />
-              Area Ludhiana, Punjab – <br />
-              141017 India
+            <p className="text-gray-600 text-sm leading-relaxed">
+              Village Ramnagar,<br /> near Banur, Tehsil Rajpura,<br /> District Patiala,<br /> Punjab, 140601 India
             </p>
           </div>
         </div>
@@ -72,28 +68,28 @@ function Footer() {
               <div className="flex justify-center lg:justify-start gap-4 mb-6">
                 <Link
                   to="#"
-                  className="w-11 h-11 flex items-center justify-center bg-[#1a1a1a] hover:bg-orange-500 transition-all duration-300 rounded-md hover:scale-110"
+                  className="w-11 h-11 flex items-center justify-center bg-[#1a1a1a] hover:bg-blue-500 transition-all duration-300 rounded-md hover:scale-110"
                 >
                   <FaFacebookF className="text-white text-base" />
                 </Link>
 
                 <Link
                   to="#"
-                  className="w-11 h-11 flex items-center justify-center bg-[#1a1a1a] hover:bg-orange-500 transition-all duration-300 rounded-md hover:scale-110"
+                  className="w-11 h-11 flex items-center justify-center bg-[#1a1a1a] hover:bg-black transition-all duration-300 rounded-md hover:scale-110"
                 >
                   <FaXTwitter className="text-white text-base" />
                 </Link>
 
                 <Link
                   to="#"
-                  className="w-11 h-11 flex items-center justify-center bg-[#1a1a1a] hover:bg-orange-500 transition-all duration-300 rounded-md hover:scale-110"
+                  className="w-11 h-11 flex items-center justify-center bg-[#1a1a1a] hover:bg-linear-to-br from-[#4f9bf2] via-[#ae32be] to-yellow-200  transition-all duration-300 rounded-md hover:scale-110"
                 >
                   <FaInstagram className="text-white text-base" />
                 </Link>
 
                 <Link
                   to="#"
-                  className="w-11 h-11 flex items-center justify-center bg-[#1a1a1a] hover:bg-orange-500 transition-all duration-300 rounded-md hover:scale-110"
+                  className="w-11 h-11 flex items-center justify-center bg-[#1a1a1a] hover:bg-blue-500 transition-all duration-300 rounded-md hover:scale-110"
                 >
                   <FaLinkedinIn className="text-white text-base" />
                 </Link>
@@ -128,21 +124,19 @@ function Footer() {
                 <button
                   type="submit"
                   
-                  className="w-full sm:w-auto bg-orange-500 hover:bg-orange-600 px-6 py-3 rounded-md font-medium transition-all duration-300 hover:scale-105 disabled:opacity-60"
+                  className="w-full sm:w-auto  text-white hover:bg-gray-600 px-6 py-3 rounded-md font-medium transition-all duration-300 hover:scale-105 disabled:opacity-60"
                 >
-                  
+                  Send
                 </button>
               </form>
              
             </div>
 
-            <div className="text-center lg:text-right">
-              <h3 className="text-2xl font-bold text-orange-500 mb-2">
-                Shanker Casting <br /> Industries
-              </h3>
+            <div className="text-center lg:text-right flex flex-col items-center lg:items-end gap-4">
+            <img className="w-40 flex " src={logo} alt="logo" />
 
               <p className="text-gray-400 text-sm">
-                © 2026 Shanker Casting Industries.
+                © 2026 Nearnet.
                 <br />
                 All Rights Reserved.
               </p>
