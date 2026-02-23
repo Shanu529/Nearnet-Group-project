@@ -14,6 +14,19 @@ import phone from "/phone.png";
 function Home() {
   const navigate = useNavigate();
 
+  const handleClick = () => {
+    window.location.href = "/Signin";
+  };
+
+  const handleGetStarted = () => {
+    const isLoggedIn = localStorage.getItem("user");
+    if (!isLoggedIn) {
+      navigate("/Signin");
+    } else {
+      navigate("/offer");
+    }
+  };
+
   return (
     <>
       <section className="bg-[#faf7f2]">
@@ -21,17 +34,17 @@ function Home() {
           <div className="flex flex-cols-2 lg:flex-cols-2 items-center gap-16">
             <div>
               <div data-aos="fade-down">
-              <h1 className="text-3xl lg:text-5xl font-bold text-gray-900 leading-tight">
-                Building Stronger Communities Together
-              </h1>
+                <h1 className="text-3xl lg:text-6xl font-bold text-gray-900 leading-tight">
+                  Building Stronger Communities Together
+                </h1>
 
-              <p className="mt-5 text-gray-600 max-w-md">
-                Share Resources Within <br />
-                Neighborhood
-              </p>
+                <p className="mt-5 text-gray-600 lg:text-2xl  max-w-md">
+                  Share Resources Within <br />
+                  Neighborhood
+                </p>
               </div>
               <div className="mt-8 flex gap-4">
-                <button className="bg-black text-white sm:px-6 sm:py-3 py-2 px-2 rounded-lg font-medium hover:bg-gray-800 transition">
+                <button onClick={handleGetStarted} className=" GetStarted bg-black text-white sm:px-6 sm:py-3 py-2 px-2 rounded-lg font-medium hover:bg-gray-800 transition">
                   Get started →
                 </button>
 
@@ -40,30 +53,14 @@ function Home() {
                 </button>
               </div>
 
-              <div className="mt-12 flex items-center gap-8 text-gray-400">
-                <Link to="/login">
-                  <span className="
-                  hover:text-black
-                  font-semibold">Login</span>
-                </Link>
 
-                <Link to="/signin">
-                  <span className="
-                  hover:text-black
-                  font-semibold">Signin</span>
-                </Link>
-
-                <Link to="/listing">
-                  <span className="font-semibold">Listing</span>
-                </Link>
-              </div>
             </div>
 
             <div className="relative flex justify-center">
               <div data-aos="fade-down">
-              <img src={phone} alt="Real estate app" className="rounded-3xl" />
+                <img src={phone} alt="Real estate app" className="rounded-3xl" />
+              </div>
             </div>
-          </div>
           </div>
         </div>
       </section>
@@ -71,7 +68,7 @@ function Home() {
       <section></section>
 
       <WhyChooseUs />
-      <GetStarted />
+      {/* <GetStarted /> */}
       <FAQ />
     </>
   );

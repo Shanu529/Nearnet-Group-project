@@ -80,7 +80,7 @@ function Signin() {
   return (
     <>
       {/* <Toaster position="top-right" reverseOrder={false} /> */}
-      <div className="min-h-screen bg-linear-to-br from-[#cbcbcb] via-[#ffffff] to-black flex items-center justify-center px-4">
+      <div className="min-h-screen bg-white flex items-center justify-center px-4">
         {/* Main Card */}
         <div className="w-full max-w-5xl bg-white rounded-2xl shadow-2xl grid grid-cols-1 md:grid-cols-2">
           {/* Left Image Section (desktop only) */}
@@ -210,4 +210,3 @@ function Signin() {
 }
 
 export default Signin;
-//"
