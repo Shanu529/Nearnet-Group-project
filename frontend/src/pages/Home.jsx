@@ -6,75 +6,77 @@ import GetStarted from "../components/GetStarted.jsx";
 import { Link, useNavigate } from "react-router-dom";
 import FAQ from "../components/FAQ.jsx";
 
-// import <phone className="png"></phone>4
-// import { Toaster } from "react-hot-toast";
-// import  phone from ""
 import phone from "/phone.png";
 
 function Home() {
   const navigate = useNavigate();
 
+  const handleClick = () => {
+    window.location.href = "/Signin";
+  };
+
+  const handleGetStarted = () => {
+    const isLoggedIn = localStorage.getItem("user");
+    if (!isLoggedIn) {
+      navigate("/Signin");
+    } else {
+      navigate("/offer");
+    }
+  };
+
   return (
     <>
-     <section className="bg-[#faf7f2] mt-20 lg:mt-0">
-  <div className="min-h-screen max-w-7xl mx-auto px-6 py-10 md:py-20 flex items-center">
+    <section className="relative bg-[#f8f6f2]  lg:mt-0 overflow-hidden">
+
+  <div className="min-h-screen max-w-7xl mx-auto px-6 py-12 sm:py-16 flex items-center">
     
-    <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 w-full">
-      
- 
-      <div className="w-full lg:w-1/2 md:text-center lg:text-left">
-        
-        <div data-aos="fade-down">
-          <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
-            Building Stronger Communities Together
-          </h1>
+    <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16 w-full">
 
-          <p className="mt-5 text-gray-600 max-w-md mx-auto font-semibold text-xl lg:mx-0">
-            Share Resources With-in <br className="hidden sm:block" />
-            Neighborhood
-          </p>
-        </div>
+      <div className="w-full lg:w-1/2 md:text-center lg:text-left space-y-5">
 
-        
-        <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-          <button className="bg-black text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-800 transition">
-            Get started →
+        <h1 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold text-gray-900 leading-tight">
+          Building Stronger
+          <span className="block">
+            Communities Together
+          </span>
+        </h1>
+
+        <p className="text-gray-600 text-base sm:text-lg lg:text-xl max-w-lg mx-auto lg:mx-0">
+          Share resources within your neighborhood and create meaningful
+          connections with people around you.
+        </p>
+
+        <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-3">
+          <button className="px-6 py-2.5 lg:px-8 lg:py-3 rounded-xl font-semibold text-white bg-black shadow-md hover:bg-gray-800 transition-all duration-300">
+            Get Started →
           </button>
 
-          <button className="bg-white text-gray-900 px-6 py-3 rounded-lg border hover:bg-gray-100 transition">
-            More about app
+          <button className="px-6 py-2.5 lg:px-8 lg:py-3 rounded-xl font-semibold border border-gray-300 bg-white hover:bg-gray-100 transition">
+            Learn More
           </button>
         </div>
 
-      
-        {/* <div className="mt-10 flex justify-center lg:justify-start gap-8 text-gray-500">
-          <Link to="/login">
-            <span className="hover:text-black font-semibold transition">
-              Login
-            </span>
-          </Link>
-
-          <Link to="/signin">
-            <span className="hover:text-black font-semibold transition">
-              Signin
-            </span>
-          </Link>
-
-          <Link to="/listing">
-            <span className="hover:text-black font-semibold transition">
-              Listing
-            </span>
-          </Link>
-        </div> */}
       </div>
 
-      
-      <div className="w-full lg:w-1/2 flex justify-center">
-        <div data-aos="fade-down" className="w-full  max-w-sm sm:max-w-md lg:max-w-xl">
+      <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
+        <div className="relative flex justify-center">
+
+          <div className="absolute w-[80%] h-[80%] bg-gray-200 rounded-3xl blur-3xl opacity-30"></div>
+
           <img
             src={phone}
-            alt="Real estate app"
-            className="w-full h-auto object-contain rounded-3xl"
+            alt="App preview"
+            className="
+              relative
+              w-[100%]
+              sm:w-[55%]
+              md:w-[45%]
+              lg:w-[95%]
+              xl:w-[105%]
+              drop-shadow-2xl
+              transition-transform duration-500
+              hover:scale-105
+            "
           />
         </div>
       </div>
@@ -83,11 +85,8 @@ function Home() {
   </div>
 </section>
 
-
-   
-
       <WhyChooseUs />
-      <GetStarted />
+      {/* <GetStarted /> */}
       <FAQ />
     </>
   );
