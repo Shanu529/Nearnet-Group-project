@@ -17,7 +17,7 @@ function Request() {
         </div>
 
         <h2 className="text-3xl font-bold text-center mb-2">
-          Offer a Resource
+          Request a Resource
         </h2>
 
         <p className="text-sm text-gray-500 text-center mb-6">
