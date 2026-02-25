@@ -43,7 +43,7 @@ function Home() {
                   Neighborhood
                 </p>
               </div>
-              <div className="mt-8 flex gap-4">
+              <div className="mt-8 flex gap-4 ">
                 <button onClick={handleGetStarted} className=" GetStarted bg-black text-white sm:px-6 sm:py-3 py-2 px-2 rounded-lg font-medium hover:bg-gray-800 transition">
                   Get started →
                 </button>
@@ -68,7 +68,7 @@ function Home() {
       <section></section>
 
       <WhyChooseUs />
-      {/* <GetStarted /> */}
+      <GetStarted />
       <FAQ />
     </>
   );
